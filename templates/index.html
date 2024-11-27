@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-evenly mt-4">
+        <div class="col">
+            <form method="POST">
+                <div class="col-4">
+                    <div class="input-group flex nowrap">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" name="content" placeholder="Write a task"
+                            aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <div class="input-group mt-3">
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-success alert-dismissible fade show">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <div class="col mt-auto">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tareas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                    <tr>
+                        <td> {{ task.content }} </td>
+                        <td> <a href="/update/{{ task.id }}" class="btn btn-warning">Editar</a> </td>
+                        <td> <a href="/delete/{{ task.id }}" class="btn btn-danger">Eliminar</a> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
