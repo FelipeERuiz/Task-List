@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} | Lista de tareas</title>
+</head>
+<body>
+    <header>
+        <h1> Lista de tareas </h1>
+        {% block content %}{% endblock %}
+    </header>
+</body>
+{% for message in get_flashed_messages() %}
+    {% if message %}
+        <span> {{ message }} </span>
+    {% endif %}
+{% endfor %}
+</html>

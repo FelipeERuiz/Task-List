@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route("/create_task", methods=["GET", "POST"])
-def index():
+def add_task():
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
 

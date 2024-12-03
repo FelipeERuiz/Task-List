@@ -11,11 +11,20 @@
 </head>
 
 <body>
+        {% if g.user %}
+            <li> <a href="{{ url_for('auth.logout') }}">Cerrar sesion</a></li>
+        {% else %}
+            <li> <a href="{{ url_for('auth.signup') }}">Registrarse</a></li>
+            <li> <a href="{{ url_for('auth.signin') }}">Iniciar sesion</a></li>
+        {% endif %}
+        
+    <h1>Bienvendo! {% block title %}{% endblock %} </h1> 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand">Task List</a>
         </div>
     </nav>
+    <h1> Hola {% block title %}{% endblock %} </h1>
     {% block content %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

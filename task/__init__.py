@@ -7,7 +7,7 @@ def create_app():
 
     app.config.from_mapping(
         SECRET_KEY="mikey",
-        DATABASE_HOTS="localhost",
+        DATABASE_HOST="localhost",
         DATABASE_USER="chanchitofeliz",
         DATABASE_PASSWORD="holamundo",
         DATABASE="tasks"

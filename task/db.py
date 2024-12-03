@@ -4,7 +4,7 @@ import mysql.connector
 
 
 def get_db():
-    if g not in "db":
+    if g is not "db":
         g.db = mysql.connector.connect(
             host=current_app.config["DATABASE_HOST"],
             user=current_app.config["DATABASE_USER"],
